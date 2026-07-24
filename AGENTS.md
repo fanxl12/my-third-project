@@ -66,6 +66,38 @@
 - 遇到错误时，**系统性调试**（复现 → 诊断 → 修复 → 预防）
 - 提交代码前，**验证所有测试通过**
 
+### 6. 技术选型约束
+
+<!--
+  技术选型决策及核心约束，AI 生成代码时须严格遵循此技术边界。
+  选型依据详见本文件末尾与 openspec/project.md。
+-->
+
+#### 选型结论
+
+| 层 | 框架 | 部署 |
+|----|------|------|
+| **前端** | Next.js (React + TypeScript) | Vercel |
+| **后端** | Spring Boot 3.4 + JDK 21 + Maven | Docker + 云服务器 |
+
+#### 选型约束
+
+| 约束 | 值 |
+|------|-----|
+| 团队规模 | 3 人 |
+| 团队技能 | 全员熟悉 React，Spring Boot 开发经验充足 |
+| 项目周期 | 8 周上线 MVP |
+| 部署环境 | Vercel（前端）/ Docker（后端） |
+| 开发范式 | AI 辅助开发为主 |
+| 长期定位 | 线上可持续运行迭代 |
+
+#### 选型原则（AI 生成代码时遵循）
+
+1. **前端**：生成 Next.js App Router 代码（Server Components 优先），样式使用 Tailwind CSS 4，状态管理优先用 React Context/useReducer，避免引入第三方 UI 库（除非 spec 明确要求）
+2. **后端**：生成 Spring Boot REST API 代码，遵循 Controller → Service → Mapper 三层架构，使用 MyBatis-Plus 作为 ORM，API 返回统一的 `ApiResponse<T>` 包装
+3. **前后端通信**：前端通过 HTTP REST JSON 调用后端，不混合前端页面与后端逻辑
+4. **不越界**：不要在前端子模块生成 Java 代码，不要在后端子模块生成 TSX 代码
+
 ## 配置索引
 
 本文件提供全局约束。详细行为规范分布在以下位置：
@@ -86,7 +118,7 @@
 | 子模块 | 路径 | 技术栈 | 职责 |
 |--------|------|--------|------|
 | `backend` | `./backend` | Spring Boot 3.4 + Maven + MyBatis-Plus + PostgreSQL | REST API 后端服务 |
-| `frontend` | `./frontend` | Vue 3 + Vite 6 + TypeScript + Element Plus + Tailwind CSS 4 | SPA 前端应用 |
+| `frontend` | `./frontend` | Next.js + React + TypeScript + Tailwind CSS 4 | SSR/SSG 前端应用 |
 
 ### 子模块工作约定
 
