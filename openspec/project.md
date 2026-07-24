@@ -19,8 +19,9 @@ my-third-project
 <!-- 随项目演进而更新此列表 -->
 
 - **前端**: Next.js + React + TypeScript + Tailwind CSS 4
-- **后端**: Java 21 + Spring Boot 3.4 + MyBatis-Plus + Maven
-- **数据库**: PostgreSQL
+- **后端**: Java 21 + Spring Boot 3.4 + Spring Data JPA + Maven
+- **数据库**: MySQL 8.0+
+- **数据库迁移**: Flyway
 - **基础设施**: Vercel（前端部署）/ Docker（后端部署）
 
 ## 架构决策
@@ -33,9 +34,11 @@ my-third-project
 | 采用 Superpowers 技能体系 | 2026-07 | ✅ 已采纳 | 使用 agent skills 驱动开发流程 |
 | 前后端分离 + 平级目录 | 2026-07 | ✅ 已采纳 | `backend/` + `frontend/` 同级独立构建 |
 | 前端 Next.js + React + Tailwind CSS 4 | 2026-07 | ✅ 已采纳 | 团队 React 经验 + Vercel 零配置部署 + AI 生成质量最高 |
-| 后端 Spring Boot 3.4 + JDK 21 + MyBatis-Plus | 2026-07 | ✅ 已采纳 | 团队 Spring Boot 经验充足 + 生产级生态 + 长期可维护 |
+| 后端 Spring Boot 3.4 + JDK 21 + Spring Data JPA + Flyway | 2026-07 | ✅ 已采纳 | 团队 Spring Boot 经验充足 + 生产级生态 + 长期可维护 |
+| ORM Spring Data JPA | 2026-07 | ✅ 已采纳 | 实体驱动建模，与 AI 对话复杂关联场景匹配 |
 | Maven Wrapper | 2026-07 | ✅ 已采纳 | 构建工具，无需预装 Maven |
-| 数据库 PostgreSQL | 2026-07 | ✅ 已采纳 | 关系型数据库，与 Spring Boot 生态匹配 |
+| 数据库 MySQL 8.0+ | 2026-07 | ✅ 已采纳 | 关系型数据库，配合 Flyway 版本化管理 |
+| 数据库迁移 Flyway | 2026-07 | ✅ 已采纳 | 版本化迁移，DDL 受控管理 |
 
 ## 开发约定
 
