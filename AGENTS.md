@@ -79,6 +79,31 @@
 | `openspec/specs/` | 系统规范（事实来源） | 写代码时参考 |
 | `openspec/changes/` | 变更记录 & 模板 | 创建新变更时 |
 
+## 项目结构（AIWorkSpace）
+
+本仓库是 **AIWorkSpace 编排层**，采用 Git Submodule 组织子项目：
+
+| 子模块 | 路径 | 技术栈 | 职责 |
+|--------|------|--------|------|
+| `backend` | `./backend` | Spring Boot 3.4 + Maven + MyBatis-Plus + PostgreSQL | REST API 后端服务 |
+| `frontend` | `./frontend` | Vue 3 + Vite 6 + TypeScript + Element Plus + Tailwind CSS 4 | SPA 前端应用 |
+
+### 子模块工作约定
+
+- 每个子模块拥有**独立的 `.git` 仓库**，在根仓库中以 submodule 引用
+- 进入子模块目录后，AI 应像操作独立项目一样读写代码
+- **修改子模块代码后**，需先进入子模块目录 `git add && git commit`，再回到根目录提交 submodule 指针变更
+- 子模块 URL 当前使用相对路径，后续可替换为远程仓库地址
+- 根仓库不直接追踪 `backend/` 和 `frontend/` 下的文件，所有变更由子模块自身管理
+
+### 初始克隆
+
+```bash
+git clone --recurse-submodules <repo-url>
+# 或已克隆后：
+git submodule update --init --recursive
+```
+
 ## 禁止事项
 
 - ❌ 不创建不必要的文档（README 类、总结类 .md 文件）
