@@ -1,8 +1,12 @@
-# /opsx:explore — 探索 & 头脑风暴
+---
+description: 探索需求、分析方案 — 研究 topic 并给出推荐路径
+---
+
+# /opsx-explore — 探索 & 头脑风暴
 
 ## 触发条件
 
-- 用户输入 `/opsx:explore`
+- 用户输入 `/opsx-explore <topic>`
 - 用户说"我想做 X 但不确定怎么做"
 - 任何需要先探索再动手的场景
 
@@ -10,7 +14,7 @@
 
 ### 1. 理解上下文
 
-收到 `/opsx:explore <topic>` 后：
+收到 `/opsx-explore <topic>` 后：
 1. 先阅读 `openspec/project.md` 了解项目技术栈和架构决策
 2. 阅读 `openspec/specs/` 下已有的规范，了解当前系统状态
 3. 研究 topic 相关的现有代码和模块
@@ -55,10 +59,9 @@
 
 🏆 推荐: 方案 X，因为 ...
 
-📝 下一步: 输入 /opsx:propose <change-id> 创建正式提案
+📝 下一步: 输入 /opsx-propose <change-id> 创建正式提案
 ```
 
-## 关联技能
+## 关联指令
 
-- 设计确认后 → `/opsx:propose`
-- 本技能与 `brainstorming` 技能互补：explore 更侧重代码库探索，brainstorming 更侧重方案设计
+- 设计确认后 → `/opsx-propose`

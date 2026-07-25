@@ -1,8 +1,12 @@
-# /opsx:propose — 创建变更提案
+---
+description: 创建变更提案 — proposal + design + tasks + specs
+---
+
+# /opsx-propose — 创建变更提案
 
 ## 触发条件
 
-- 用户输入 `/opsx:propose <change-id>`
+- 用户输入 `/opsx-propose <change-id>`
 - 探索完成后，用户确认要创建正式提案
 - 用户说"创建提案"、"写 spec"
 
@@ -10,14 +14,14 @@
 
 ### 1. 创建变更目录
 
-在 `openspec/changes/<change-id>/` 下创建完整的变更目录结构：
+在 `openspec/changes/<change-id>/` 下创建完整的变更目录结构，**必须同时创建 `specs/` 子目录**：
 
 ```
 openspec/changes/<change-id>/
 ├── proposal.md    # 为什么做、变更什么
 ├── design.md      # 技术方案
 ├── tasks.md       # 实现任务清单
-└── specs/         # 此变更的规范增量
+└── specs/         # 此变更的规范增量（强制！）
 ```
 
 ### 2. 编写 proposal.md
@@ -70,7 +74,7 @@ openspec/changes/<change-id>/
 
 ### 4. 编写 tasks.md
 
-调用 `writing-plans` 技能的逻辑，将设计分解为可执行任务：
+将设计分解为可执行任务：
 
 ```markdown
 # Tasks: <change-id>
@@ -97,10 +101,9 @@ openspec/changes/<change-id>/
 ✅ tasks.md    — N 个任务，预计 ~M 分钟
 ✅ specs/      — 规范增量已就绪
 
-🔍 请审阅以上文件，确认后输入 /opsx:apply <change-id> 开始实现
+🔍 请审阅以上文件，确认后输入 /opsx-apply <change-id> 开始实现
 ```
 
-## 关联技能
+## 关联指令
 
-- 提案确认后 → `/opsx:apply`
-- 本技能整合了 `brainstorming`（设计）和 `writing-plans`（任务分解）的输出
+- 提案确认后 → `/opsx-apply`

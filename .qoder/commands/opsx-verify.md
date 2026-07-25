@@ -1,8 +1,12 @@
-# /opsx:verify — 验证实现
+---
+description: 验证实现 — 规范合规 + 测试 + 代码质量
+---
+
+# /opsx-verify — 验证实现
 
 ## 触发条件
 
-- 用户输入 `/opsx:verify <change-id>`
+- 用户输入 `/opsx-verify <change-id>`
 - 实现完成后，归档前的验证步骤
 - 用户说"验证一下"
 
@@ -47,11 +51,10 @@
   ✅ 错误处理完善
 
 📊 总评: ✅ 可以归档
-  输入 /opsx:archive <change-id> 归档变更
+  输入 /opsx-archive <change-id> 归档变更
 ```
 
-## 关联技能
+## 关联指令
 
-- 验证通过 → `/opsx:archive`
-- 验证不通过 → 修复后重新 `/opsx:verify`
-- 本技能整合了 `verification-before-completion` 和 `requesting-code-review` 的检查逻辑
+- 验证通过 → `/opsx-archive`
+- 验证不通过 → 修复后重新 `/opsx-verify`

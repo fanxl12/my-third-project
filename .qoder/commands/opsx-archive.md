@@ -1,8 +1,12 @@
-# /opsx:archive — 归档变更
+---
+description: 归档变更 — 移动到 archive/ 并更新系统规范
+---
+
+# /opsx-archive — 归档变更
 
 ## 触发条件
 
-- 用户输入 `/opsx:archive <change-id>`
+- 用户输入 `/opsx-archive <change-id>`
 - 实现完成并验证通过
 - 变更已合并到主分支
 
@@ -52,10 +56,9 @@ openspec/changes/<change-id>/
   - 测试: 全部通过
 
 🎉 变更已归档，可以开始下一个功能了。
-   输入 /opsx:explore <新需求> 开始探索。
+   输入 /opsx-explore <新需求> 开始探索。
 ```
 
-## 关联技能
+## 关联指令
 
-- 归档完成 → 可以开始新的 `/opsx:explore`
-- 本技能与 `finishing-a-development-branch` 互补：archive 侧重文件归档，finishing-branch 侧重 git 分支操作
+- 归档完成 → 可以开始新的 `/opsx-explore`

@@ -26,11 +26,11 @@
 使用 OpenSpec 快捷指令驱动开发全流程：
 
 ```
-/opsx:explore <topic>    → 探索需求、分析方案
-/opsx:propose <change-id> → 创建变更提案（proposal + design + tasks + specs）
-/opsx:apply <change-id>   → 按任务清单逐项实现（TDD）
-/opsx:verify <change-id>  → 验证实现（规范合规 + 测试 + 代码质量）
-/opsx:archive <change-id> → 归档变更、更新系统规范
+/opsx-explore <topic>    → 探索需求、分析方案
+/opsx-propose <change-id> → 创建变更提案（proposal + design + tasks + specs）
+/opsx-apply <change-id>   → 按任务清单逐项实现（TDD）
+/opsx-verify <change-id>  → 验证实现（规范合规 + 测试 + 代码质量）
+/opsx-archive <change-id> → 归档变更、更新系统规范
 ```
 
 底层流程:
@@ -78,7 +78,7 @@
 | 层 | 框架 | 部署 |
 |----|------|------|
 | **前端** | Next.js (React + TypeScript) | Vercel |
-| **后端** | Spring Boot 3.4 + JDK 21 + Maven | Docker + 云服务器 |
+| **后端** | Spring Boot 3.4 + JDK 21 + Maven + Spring Data JPA + MySQL + Flyway | Docker + 云服务器 |
 
 #### 选型约束
 
@@ -94,7 +94,7 @@
 #### 选型原则（AI 生成代码时遵循）
 
 1. **前端**：生成 Next.js App Router 代码（Server Components 优先），样式使用 Tailwind CSS 4，状态管理优先用 React Context/useReducer，避免引入第三方 UI 库（除非 spec 明确要求）
-2. **后端**：生成 Spring Boot REST API 代码，遵循 Controller → Service → Mapper 三层架构，使用 MyBatis-Plus 作为 ORM，API 返回统一的 `ApiResponse<T>` 包装
+2. **后端**：生成 Spring Boot REST API 代码，遵循 Controller → Service → Repository 三层架构，使用 Spring Data JPA 作为 ORM，Flyway 管理数据库迁移，MySQL 8.0+ 作为数据库，API 返回统一的 `ApiResponse<T>` 包装
 3. **前后端通信**：前端通过 HTTP REST JSON 调用后端，不混合前端页面与后端逻辑
 4. **不越界**：不要在前端子模块生成 Java 代码，不要在后端子模块生成 TSX 代码
 
@@ -117,7 +117,7 @@
 
 | 子模块 | 路径 | 技术栈 | 职责 |
 |--------|------|--------|------|
-| `backend` | `./backend` | Spring Boot 3.4 + Maven + MyBatis-Plus + PostgreSQL | REST API 后端服务 |
+| `backend` | `./backend` | Spring Boot 3.4 + Maven + Spring Data JPA + MySQL + Flyway | REST API 后端服务 |
 | `frontend` | `./frontend` | Next.js + React + TypeScript + Tailwind CSS 4 | SSR/SSG 前端应用 |
 
 ### 子模块工作约定

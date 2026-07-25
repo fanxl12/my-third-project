@@ -1,8 +1,12 @@
-# /opsx:apply — 执行实现
+---
+description: 按任务清单逐项实现 — TDD：RED → GREEN → REFACTOR
+---
+
+# /opsx-apply — 执行实现
 
 ## 触发条件
 
-- 用户输入 `/opsx:apply <change-id>`
+- 用户输入 `/opsx-apply <change-id>`
 - 提案审核通过，准备实现
 - 用户说"开始实现"、"apply"
 
@@ -72,11 +76,10 @@ Phase 2: Core
   - 新增文件: 5 个
   - 修改文件: 2 个
 
-📝 下一步: 输入 /opsx:verify <change-id> 验证实现
-          输入 /opsx:archive <change-id> 归档变更
+📝 下一步: 输入 /opsx-verify <change-id> 验证实现
+          输入 /opsx-archive <change-id> 归档变更
 ```
 
-## 关联技能
+## 关联指令
 
-- 实现完成 → `/opsx:verify` → `/opsx:archive`
-- 本技能内部调用 `test-driven-development` 和 `subagent-driven-development`
+- 实现完成 → `/opsx-verify` → `/opsx-archive`
