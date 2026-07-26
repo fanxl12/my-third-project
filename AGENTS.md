@@ -97,7 +97,7 @@
 
 #### 选型原则（AI 生成代码时遵循）
 
-1. **前端**：生成 Next.js App Router 代码（Server Components 优先），样式使用 Tailwind CSS 4，状态管理优先用 React Context/useReducer，避免引入第三方 UI 库（除非 spec 明确要求）
+1. **前端**：生成 Next.js App Router 代码（Server Components 优先），样式使用 Tailwind CSS 4，状态管理优先用 React Context/useReducer；UI 组件使用 shadcn/ui + lucide-react 图标库
 2. **后端**：生成 Spring Boot REST API 代码，遵循 Controller → Service → Repository 三层架构，使用 Spring Data JPA 作为 ORM，Flyway 管理数据库迁移，MySQL 8.0+ 作为数据库，API 返回统一的 `ApiResponse<T>` 包装
 3. **前后端通信**：前端通过 HTTP REST JSON 调用后端，不混合前端页面与后端逻辑
 4. **不越界**：不要在前端子模块生成 Java 代码，不要在后端子模块生成 TSX 代码
@@ -122,7 +122,7 @@
 | 子模块 | 路径 | 技术栈 | 职责 |
 |--------|------|--------|------|
 | `backend` | `./backend` | Spring Boot 3.4 + Maven + Spring Data JPA + MySQL + Flyway | REST API 后端服务 |
-| `frontend` | `./frontend` | Next.js + React + TypeScript + Tailwind CSS 4 | SSR/SSG 前端应用 |
+| `frontend` | `./frontend` | Next.js + React + TypeScript + Tailwind CSS 4 + shadcn/ui + lucide-react | SSR/SSG 前端应用 |
 
 ### 子模块工作约定
 
@@ -148,3 +148,6 @@ git submodule update --init --recursive
 - ❌ 不在未确认 spec 的情况下写实现
 - ❌ 不过度设计（YAGNI）
 - ❌ 不提交调试代码（console.log 等）
+- ❌ 不引入 shadcn/ui 和 lucide-react 之外的第三方 UI 库（如 MUI、Ant Design、Chakra UI）
+- ❌ 不使用内联 `style={{}}` 对象（统一使用 Tailwind 类名或 shadcn/ui 组件 Props）
+- ❌ 不自行实现已有的 shadcn/ui 组件功能（如 toast 应使用 Sonner 而非手写）
