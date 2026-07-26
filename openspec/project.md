@@ -8,7 +8,7 @@
 
 ## 项目名称
 
-my-third-project
+WanderChina
 
 ## 项目简介
 

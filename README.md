@@ -1,6 +1,6 @@
-# my-third-project
+# WanderChina
 
-基于 **Harness + OpenSpec + Superpowers** 三位一体方法论构建的 AI 编码全栈开发项目。
+基于 **Harness + OpenSpec + Superpowers** 三位一体方法论构建的入境游客中国旅行平台。
 
 ## 核心理念
 
