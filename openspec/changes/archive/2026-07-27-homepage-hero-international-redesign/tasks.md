@@ -73,5 +73,5 @@
 
 ## Phase 6: 提交
 
-- [ ] 6.1 frontend 子模块提交：`feat: redesign hero section with international style`
-- [ ] 6.2 根仓库提交：`feat: add homepage-hero-international-redesign change`
+- [x] 6.1 frontend 子模块提交：`feat: redesign hero section with international style`
+- [x] 6.2 根仓库提交：`feat: add homepage-hero-international-redesign change`
